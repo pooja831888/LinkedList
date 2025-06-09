@@ -1,0 +1,42 @@
+ static Node segregate(Node head) {
+        if(head==null)return null;
+        int zerocount=0, onecount=0,twocount=0;
+        Node temp=head;
+        while(temp!=null)
+        {
+            if(temp.data==0){
+               zerocount++; 
+            }
+            else if(temp.data==1){
+               onecount++; 
+            }
+            else
+            {
+                twocount++;
+            }
+            temp=temp.next;
+        }
+        
+        temp=head;
+        while(zerocount-->0)
+        {
+            temp.data=0;
+            temp=temp.next;
+        }
+        
+         while(onecount-->0)
+        {
+            temp.data=1;
+            temp=temp.next;
+        }
+        
+         while(twocount-->0)
+        {
+            temp.data=2;
+            temp=temp.next;
+        }
+        
+        return head;
+       
+        
+    }
